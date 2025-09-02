@@ -1,0 +1,981 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warung Kopi Nusantara - Kenikmatan Kopi Tradisional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                       url('https://placehold.co/1920x1080');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .coffee-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .coffee-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .menu-active {
+            border-bottom: 3px solid #d4a373;
+            color: #d4a373;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header & Navigation -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-amber-600 rounded-full mr-3"></div>
+                    <span class="text-2xl font-bold text-amber-600">KopiNusantara</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-amber-600 transition-colors">Beranda</a>
+                    <a href="#about" class="hover:text-amber-600 transition-colors">Tentang</a>
+                    <a href="#menu" class="hover:text-amber-600 transition-colors">Menu</a>
+                    <a href="#gallery" class="hover:text-amber-600 transition-colors">Galeri</a>
+                    <a href="#location" class="hover:text-amber-600 transition-colors">Lokasi</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="hidden md:block bg-amber-600 text-white px-6 py-2 rounded-full hover:bg-amber-700 transition-colors">
+                        Pesan Sekarang
+                    </button>
+                    <button class="md:hidden text-amber-600" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden bg-white absolute top-full left-0 w-full shadow-lg" id="mobile-menu">
+                <div class="flex flex-col p-6 space-y-4">
+                    <a href="#home" class="hover:text-amber-600 transition-colors">Beranda</a>
+                    <a href="#about" class="hover:text-amber-600 transition-colors">Tentang</a>
+                    <a href="#menu" class="hover:text-amber-600 transition-colors">Menu</a>
+                    <a href="#gallery" class="hover:text-amber-600 transition-colors">Galeri</a>
+                    <a href="#location" class="hover:text-amber-600 transition-colors">Lokasi</a>
+                    <button class="bg-amber-600 text-white px-6 py-2 rounded-full hover:bg-amber-700 transition-colors mt-4">
+                        Pesan Sekarang
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white pt-20">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">Warung Kopi Nusantara</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                Rasakan kehangatan dan kenikmatan kopi tradisional Indonesia di setiap seduhan
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors">
+                    Lihat Menu
+                </button>
+                <button class="border-2 border-white hover:bg-white hover:text-gray-800 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors">
+                    Pesan Online
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Tentang Warung Kami</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Sejak 2010, kami menghadirkan cita rasa kopi terbaik dari seluruh penjuru Nusantara
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://placehold.co/600x400" alt="Interior warung kopi tradisional dengan meja kayu dan hiasan tanaman tropis" class="rounded-lg shadow-xl" />
+                </div>
+                <div>
+                    <h3 class="text-3xl font-semibold mb-6">Cerita di Balik Setiap Cangkir</h3>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Warung Kopi Nusantara didirikan dengan semangat melestarikan kekayaan kopi Indonesia. 
+                        Setiap biji kopi kami pilih dengan teliti dari petani lokal yang menerapkan praktik 
+                        pertanian berkelanjutan.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-8">
+                        Dengan racikan tradisional dan metode penyeduhan yang telah diwariskan turun-temurun, 
+                        kami menghadirkan pengalaman minum kopi yang autentik dan memuaskan.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-amber-600">13+</div>
+                            <div class="text-gray-600">Jenis Kopi</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-amber-600">5000+</div>
+                            <div class="text-gray-600">Pelanggan Setia</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Menu Andalan</h2>
+                <p class="text-xl text-gray-600">
+                    Temukan favorit baru Anda di antara beragam pilihan kopi kami
+                </p>
+            </div>
+            
+            <!-- Menu Categories -->
+            <div class="flex justify-center mb-12 space-x-4">
+                <button class="menu-active px-6 py-2 font-semibold">Kopi Tradisional</button>
+                <button class="px-6 py-2 font-semibold hover:text-amber-600">Kopi Modern</button>
+                <button class="px-6 py-2 font-semibold hover:text-amber-600">Snack</button>
+            </div>
+            
+            <!-- Coffee Items -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Coffee Item 1 -->
+                <div class="coffee-card bg-white rounded-lg shadow-md p-6">
+                    <img src="https://placehold.co/400x300" alt="Kopi Tubruk tradisional dalam cangkir keramik dengan aroma harum" class="w-full h-48 object-cover rounded-lg mb-4" />
+                    <h3 class="text-xl font-semibold mb-2">Kopi Tubruk</h3>
+                    <p class="text-gray-600 mb-4">Racikan tradisional dengan aroma khas dan rasa yang kuat</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-amber-600">Rp 15.000</span>
+                        <button class="bg-amber-600 text-white px-4 py-2 rounded-full hover:bg-amber-700">
+                            Pesan
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Coffee Item 2 -->
+                <div class="coffee-card bg-white rounded-lg shadow-md p-6">
+                    <img src="https://placehold.co/400x300" alt="Kopi Gayo Aceh dengan tampilan rich crema dan aroma fruity" class="w-full h-48 object-cover rounded-lg mb-4" />
+                    <h3 class="text-xl font-semibold mb-2">Kopi Gayo</h3>
+                    <p class="text-gray-600 mb-4">Kopi premium dari Aceh dengan aroma buah dan aftertaste yang panjang</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-amber-600">Rp 25.000</span>
+                        <button class="bg-amber-600 text-white px-4 py-2 rounded-full hover:bg-amber-700">
+                            Pesan
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Coffee Item 3 -->
+                <div class="coffee-card bg-white rounded-lg shadow-md p-6">
+                    <img src="https://placehold.co/400x300" alt="Es Kopi Susu dengan lapisan gula aren dan susu segar" class="w-full h-48 object-cover rounded-lg mb-4" />
+                    <h3 class="text-xl font-semibold mb-2">Es Kopi Susu Gula Aren</h3>
+                    <p class="text-gray-600 mb-4">Perpaduan sempurna kopi, susu, dan gula aren alami</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-amber-600">Rp 22.000</span>
+                        <button class="bg-amber-600 text-white px-4 py-2 rounded-full hover:bg-amber-700">
+                            Pesan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Galeri Kami</h2>
+                <p class="text-xl text-gray-600">
+                    Jelajahi suasana hangat dan cozy warung kopi kami
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Gallery Items -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://placehold.co/400x300" alt="Interior warung kopi dengan lighting hangat dan meja kayu rustic" class="w-full h-48 object-cover" />
+                </div>
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://placehold.co/400x300" alt="Barista sedang menyeduh kopi dengan metode pour over" class="w-full h-48 object-cover" />
+                </div>
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://placehold.co/400x300" alt="Tampilan close-up berbagai jenis biji kopi dari daerah berbeda" class="w-full h-48 object-cover" />
+                </div>
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://placehold.co/400x300" alt="Pelanggan menikmati kopi di teras dengan pemandangan taman" class="w-full h-48 object-cover" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Hours -->
+    <section id="location" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Kunjungi Kami</h2>
+                <p class="text-xl text-gray-600">
+                    Datang dan rasakan pengalaman kopi yang berbeda
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Lokasi</h3>
+                    <p class="text-lg mb-4">
+                        <i class="fas fa-map-marker-alt text-amber-600 mr-3"></i>
+                        Jl. Kopi Nusantara No. 123, Jakarta Pusat
+                    </p>
+                    <p class="text-lg mb-8">
+                        <i class="fas fa-phone text-amber-600 mr-3"></i>
+                        +62 812-3456-7890
+                    </p>
+                    
+                    <h3 class="text-2xl font-semibold mb-6">Jam Operasional</h3>
+                    <div class="space-y-2">
+                        <p class="flex justify-between">
+                            <span>Senin - Jumat</span>
+                            <span>07:00 - 22:00</span>
+                        </p>
+                        <p class="flex justify-between">
+                            <span>Sabtu - Minggu</span>
+                            <span>08:00 - 23:00</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-2xl font-semibold mb-6">Peta Lokasi</h3>
+                    <div class="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
+                        <i class="fas fa-map text-4xl text-gray-400"></i>
+                    </div>
+                    <button class="w-full bg-amber-600 text-white py-3 rounded-lg mt-4 hover:bg-amber-700">
+                        Buka di Google Maps
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-amber-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Kata Pelanggan</h2>
+                <p class="text-xl text-gray-600">
+                    Apa kata mereka tentang pengalaman di warung kopi kami
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-amber-600 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-semibold">Budi Santoso</h4>
+                            <p class="text-sm text-gray-600">Pelanggan Setia</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        "Kopi Tubruk di sini yang terbaik! Rasanya autentik dan harganya sangat terjangkau."
+                    </p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-amber-600 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-semibold">Sari Wijaya</h4>
+                            <p class="text-sm text-gray-600">Coffee Lover</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        "Suasana nyaman dan wifi yang cepat. Perfect place untuk bekerja sambil menikmati kopi."
+                    </p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-amber-600 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-semibold">Rudi Hartono</h4>
+                            <p class="text-sm text-gray-600">Business Owner</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        "Pelayanan ramah dan kopi selalu konsisten enaknya. Tempat meeting favorit saya."
+                    </p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-amber-600 rounded-full mr-3"></div>
+                        <span class="text-2xl font-bold">KopiNusantara</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Menghadirkan cita rasa kopi terbaik dari seluruh Indonesia sejak 2010.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Tautan Cepat</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-amber-400">Beranda</a></li>
+                        <li><a href="#menu" class="text-gray-400 hover:text-amber-400">Menu</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-amber-400">Tentang</a></li>
+                        <li><a href="#location" class="text-gray-400 hover:text-amber-400">Lokasi</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-phone mr-3"></i> +62 812-3456-7890</p>
+                        <p><i class="fas fa-envelope mr-3"></i> info@kopinusantara.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-3"></i> Jl. Kopi Nusantara No. 123, Jakarta</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Ikuti Kami</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-amber-600">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-amber-600">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-amber-600">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Warung Kopi Nusantara. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Menu category switching
+        const menuButtons = document.querySelectorAll('#menu button');
+        menuButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                menuButtons.forEach(btn => btn.classList.remove('menu-active'));
+                this.classList.add('menu-active');
+            });
+        });
+
+        // Simple animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.coffee-card, .gallery-item, .testimonial-card').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
+```
+
+🎨 **Generating images based on descriptions...**
+
+✅ **Images generated successfully! Here's your updated content:**
+
+`warung-kopi.html`
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warung Kopi Nusantara - Kenikmatan Kopi Tradisional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                       url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9f9180c3-5583-46bc-b5a4-08232b5b669f.png');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .coffee-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .coffee-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .menu-active {
+            border-bottom: 3px solid #d4a373;
+            color: #d4a373;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header & Navigation -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-amber-600 rounded-full mr-3"></div>
+                    <span class="text-2xl font-bold text-amber-600">KopiNusantara</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-amber-600 transition-colors">Beranda</a>
+                    <a href="#about" class="hover:text-amber-600 transition-colors">Tentang</a>
+                    <a href="#menu" class="hover:text-amber-600 transition-colors">Menu</a>
+                    <a href="#gallery" class="hover:text-amber-600 transition-colors">Galeri</a>
+                    <a href="#location" class="hover:text-amber-600 transition-colors">Lokasi</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="hidden md:block bg-amber-600 text-white px-6 py-2 rounded-full hover:bg-amber-700 transition-colors">
+                        Pesan Sekarang
+                    </button>
+                    <button class="md:hidden text-amber-600" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden bg-white absolute top-full left-0 w-full shadow-lg" id="mobile-menu">
+                <div class="flex flex-col p-6 space-y-4">
+                    <a href="#home" class="hover:text-amber-600 transition-colors">Beranda</a>
+                    <a href="#about" class="hover:text-amber-600 transition-colors">Tentang</a>
+                    <a href="#menu" class="hover:text-amber-600 transition-colors">Menu</a>
+                    <a href="#gallery" class="hover:text-amber-600 transition-colors">Galeri</a>
+                    <a href="#location" class="hover:text-amber-600 transition-colors">Lokasi</a>
+                    <button class="bg-amber-600 text-white px-6 py-2 rounded-full hover:bg-amber-700 transition-colors mt-4">
+                        Pesan Sekarang
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white pt-20">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">Warung Kopi Nusantara</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                Rasakan kehangatan dan kenikmatan kopi tradisional Indonesia di setiap seduhan
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors">
+                    Lihat Menu
+                </button>
+                <button class="border-2 border-white hover:bg-white hover:text-gray-800 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors">
+                    Pesan Online
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Tentang Warung Kami</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Sejak 2010, kami menghadirkan cita rasa kopi terbaik dari seluruh penjuru Nusantara
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/365a121b-3397-4ba4-a405-50f210f246b4.png" alt="Interior warung kopi tradisional dengan meja kayu dan hiasan tanaman tropis" class="rounded-lg shadow-xl" />
+                </div>
+                <div>
+                    <h3 class="text-3xl font-semibold mb-6">Cerita di Balik Setiap Cangkir</h3>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Warung Kopi Nusantara didirikan dengan semangat melestarikan kekayaan kopi Indonesia. 
+                        Setiap biji kopi kami pilih dengan teliti dari petani lokal yang menerapkan praktik 
+                        pertanian berkelanjutan.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-8">
+                        Dengan racikan tradisional dan metode penyeduhan yang telah diwariskan turun-temurun, 
+                        kami menghadirkan pengalaman minum kopi yang autentik dan memuaskan.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-amber-600">13+</div>
+                            <div class="text-gray-600">Jenis Kopi</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-amber-600">5000+</div>
+                            <div class="text-gray-600">Pelanggan Setia</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Menu Andalan</h2>
+                <p class="text-xl text-gray-600">
+                    Temukan favorit baru Anda di antara beragam pilihan kopi kami
+                </p>
+            </div>
+            
+            <!-- Menu Categories -->
+            <div class="flex justify-center mb-12 space-x-4">
+                <button class="menu-active px-6 py-2 font-semibold">Kopi Tradisional</button>
+                <button class="px-6 py-2 font-semibold hover:text-amber-600">Kopi Modern</button>
+                <button class="px-6 py-2 font-semibold hover:text-amber-600">Snack</button>
+            </div>
+            
+            <!-- Coffee Items -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Coffee Item 1 -->
+                <div class="coffee-card bg-white rounded-lg shadow-md p-6">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2545a251-fd88-4674-86c8-18ef440de0b6.png" alt="Kopi Tubruk tradisional dalam cangkir keramik dengan aroma harum" class="w-full h-48 object-cover rounded-lg mb-4" />
+                    <h3 class="text-xl font-semibold mb-2">Kopi Tubruk</h3>
+                    <p class="text-gray-600 mb-4">Racikan tradisional dengan aroma khas dan rasa yang kuat</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-amber-600">Rp 15.000</span>
+                        <button class="bg-amber-600 text-white px-4 py-2 rounded-full hover:bg-amber-700">
+                            Pesan
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Coffee Item 2 -->
+                <div class="coffee-card bg-white rounded-lg shadow-md p-6">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a750ca5b-7743-4309-8adc-7657dcf4f4ee.png" alt="Kopi Gayo Aceh dengan tampilan rich crema dan aroma fruity" class="w-full h-48 object-cover rounded-lg mb-4" />
+                    <h3 class="text-xl font-semibold mb-2">Kopi Gayo</h3>
+                    <p class="text-gray-600 mb-4">Kopi premium dari Aceh dengan aroma buah dan aftertaste yang panjang</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-amber-600">Rp 25.000</span>
+                        <button class="bg-amber-600 text-white px-4 py-2 rounded-full hover:bg-amber-700">
+                            Pesan
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Coffee Item 3 -->
+                <div class="coffee-card bg-white rounded-lg shadow-md p-6">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/db12adf1-73c6-4627-89a2-e9ce6ed826fa.png" alt="Es Kopi Susu dengan lapisan gula aren dan susu segar" class="w-full h-48 object-cover rounded-lg mb-4" />
+                    <h3 class="text-xl font-semibold mb-2">Es Kopi Susu Gula Aren</h3>
+                    <p class="text-gray-600 mb-4">Perpaduan sempurna kopi, susu, dan gula aren alami</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-amber-600">Rp 22.000</span>
+                        <button class="bg-amber-600 text-white px-4 py-2 rounded-full hover:bg-amber-700">
+                            Pesan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Galeri Kami</h2>
+                <p class="text-xl text-gray-600">
+                    Jelajahi suasana hangat dan cozy warung kopi kami
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Gallery Items -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0a6270fb-22f0-4d4b-b890-2cf96498b5f1.png" alt="Interior warung kopi dengan lighting hangat dan meja kayu rustic" class="w-full h-48 object-cover" />
+                </div>
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b2d962f9-f493-4852-9c8d-d0765c41338e.png" alt="Barista sedang menyeduh kopi dengan metode pour over" class="w-full h-48 object-cover" />
+                </div>
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e864e548-a63b-491e-8310-533824bb18a6.png" alt="Tampilan close-up berbagai jenis biji kopi dari daerah berbeda" class="w-full h-48 object-cover" />
+                </div>
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ef85af95-a10d-4e8d-8a97-11f7cf343106.png" alt="Pelanggan menikmati kopi di teras dengan pemandangan taman" class="w-full h-48 object-cover" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Hours -->
+    <section id="location" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Kunjungi Kami</h2>
+                <p class="text-xl text-gray-600">
+                    Datang dan rasakan pengalaman kopi yang berbeda
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Lokasi</h3>
+                    <p class="text-lg mb-4">
+                        <i class="fas fa-map-marker-alt text-amber-600 mr-3"></i>
+                        Jl. Kopi Nusantara No. 123, Jakarta Pusat
+                    </p>
+                    <p class="text-lg mb-8">
+                        <i class="fas fa-phone text-amber-600 mr-3"></i>
+                        +62 812-3456-7890
+                    </p>
+                    
+                    <h3 class="text-2xl font-semibold mb-6">Jam Operasional</h3>
+                    <div class="space-y-2">
+                        <p class="flex justify-between">
+                            <span>Senin - Jumat</span>
+                            <span>07:00 - 22:00</span>
+                        </p>
+                        <p class="flex justify-between">
+                            <span>Sabtu - Minggu</span>
+                            <span>08:00 - 23:00</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-2xl font-semibold mb-6">Peta Lokasi</h3>
+                    <div class="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
+                        <i class="fas fa-map text-4xl text-gray-400"></i>
+                    </div>
+                    <button class="w-full bg-amber-600 text-white py-3 rounded-lg mt-4 hover:bg-amber-700">
+                        Buka di Google Maps
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-amber-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Kata Pelanggan</h2>
+                <p class="text-xl text-gray-600">
+                    Apa kata mereka tentang pengalaman di warung kopi kami
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-amber-600 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-semibold">Budi Santoso</h4>
+                            <p class="text-sm text-gray-600">Pelanggan Setia</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        "Kopi Tubruk di sini yang terbaik! Rasanya autentik dan harganya sangat terjangkau."
+                    </p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-amber-600 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-semibold">Sari Wijaya</h4>
+                            <p class="text-sm text-gray-600">Coffee Lover</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        "Suasana nyaman dan wifi yang cepat. Perfect place untuk bekerja sambil menikmati kopi."
+                    </p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-amber-600 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-semibold">Rudi Hartono</h4>
+                            <p class="text-sm text-gray-600">Business Owner</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        "Pelayanan ramah dan kopi selalu konsisten enaknya. Tempat meeting favorit saya."
+                    </p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                        <i class="fas fa-star text-amber-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-amber-600 rounded-full mr-3"></div>
+                        <span class="text-2xl font-bold">KopiNusantara</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Menghadirkan cita rasa kopi terbaik dari seluruh Indonesia sejak 2010.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Tautan Cepat</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-amber-400">Beranda</a></li>
+                        <li><a href="#menu" class="text-gray-400 hover:text-amber-400">Menu</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-amber-400">Tentang</a></li>
+                        <li><a href="#location" class="text-gray-400 hover:text-amber-400">Lokasi</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-phone mr-3"></i> +62 812-3456-7890</p>
+                        <p><i class="fas fa-envelope mr-3"></i> info@kopinusantara.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-3"></i> Jl. Kopi Nusantara No. 123, Jakarta</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Ikuti Kami</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-amber-600">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-amber-600">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-amber-600">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2024 Warung Kopi Nusantara. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Menu category switching
+        const menuButtons = document.querySelectorAll('#menu button');
+        menuButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                menuButtons.forEach(btn => btn.classList.remove('menu-active'));
+                this.classList.add('menu-active');
+            });
+        });
+
+        // Simple animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.coffee-card, .gallery-item, .testimonial-card').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
+```
+
+
+
